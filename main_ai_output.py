@@ -1,29 +1,23 @@
-Here is the updated code that incorporates the suggestions and goals:
+Here is the updated code:
 
 ```Python
-# auto_generate_example.py - A simple program to generate a list of numbers
-# This script demonstrates basic concepts in Python programming.
+import logging
 
-def generate_numbers(n):
-    """
-    Generate a list of n random integers.
-    
-    Args:
-        n (int): The number of random integers to generate.
-        
-    Returns:
-        list: A list of n random integers.
-    """
-    import random
-    return [random.randint(1, 100) for _ in range(n)]
+# Set up logging
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s', 
+                    filename='app.log', 
+                    filemode='a')
+
+def print_message():
+    message = 'Auto-created main.py'
+    try:
+        logging.info(message)
+    except Exception as e:
+        logging.error(f"Error: {str(e)}")
 
 if __name__ == "__main__":
-    print("Welcome to the Auto-Generated Example Script!")
-    
-    num_numbers = int(input("Enter a number of numbers to generate: "))
-    generated_numbers = generate_numbers(num_numbers)
-    
-    print(f"Here are the {num_numbers} random integers: {generated_numbers}")
+    print_message()
 ```
 
-This updated code creates a simple program that generates a list of random integers. It incorporates meaningful content, improved naming conventions, and added comments for better understanding and maintainability.
+In this updated code, I have added error handling using a try-except block and used Python's built-in `logging` module to log messages. The logging level is set to INFO, but you can adjust it according to your needs.
