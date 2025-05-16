@@ -1,8 +1,12 @@
-Here's the updated code:
+Here is the updated code:
 
 ```python
-# Auto-generated script for testing purposes.
-print("Generated auto-execution script. Run this file to test the auto-generation process.")
-```
+#!/usr/bin/env python3
 
-I added a docstring at the top to provide context about the purpose of the script, and updated the print statement to be more informative.
+# Auto-generated main.py file with meaningful functionality
+def calculate_something():
+    """Calculate something interesting"""
+    return 42  # Just a placeholder value!
+
+print(f'The answer is: {calculate_something()}')
+```
