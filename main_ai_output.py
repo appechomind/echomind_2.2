@@ -1,4 +1,4 @@
-Here is the updated code:
+Here is the updated content:
 
 ```
 def respond_to_user_input(input_text):
@@ -27,6 +27,30 @@ def respond_to_user_input(input_text):
         "travel": ["Have you traveled anywhere exciting recently?", "I've always wanted to visit Europe."],
     }
 
+    # Define emotional intelligence and sentiment analysis
+    emotional_intelligence = {
+        "happy": ["That's great! I'm glad you're feeling positive.", "You deserve to feel happy today!"],
+        "sad": ["Sorry to hear that. What can I do to help?", "I'm here for you. Let me know what you need."],
+        "angry": ["Whoa, take a deep breath and let's talk about this.", "It sounds like you're feeling frustrated. Can we work through this together?"],
+    }
+
+    # Define therapy-style conversations
+    therapy_conversations = {
+        "stress management": ["Let's break down your stressors into smaller tasks. How can I help?", "What are some things that make you feel anxious? Let's explore those."],
+        "mindfulness": ["I'd love to guide you through a mindfulness exercise. Are you ready?", "How do you usually practice self-care? Let's build on that."],
+    }
+
+    # Define user profiling and tailoring of responses
+    user_profiling = {
+        "interests": ["What are some things you enjoy doing in your free time?", "Can you tell me more about what you like?"],
+        "emotional needs": ["How can I best support you today?", "What do you need from our conversation?"],
+    }
+
+    # Define mood tracking and insights
+    mood_tracking = {
+        "mood_log": ["Here's a log of your emotions over the past week. What patterns do you see?", "It looks like you've been feeling anxious lately. Let's work on some strategies to help."],
+    }
+
     # Check if the input matches a response
     for key in responses:
         if key.lower() == input_text.lower():
@@ -42,6 +66,26 @@ def respond_to_user_input(input_text):
         if topic.lower() in input_text.lower():
             return random.choice(phrases)
 
+    # Check if the input matches emotional intelligence and sentiment analysis
+    for emotion, responses in emotional_intelligence.items():
+        if emotion.lower() in input_text.lower():
+            return random.choice(responses)
+
+    # Check if the input is related to therapy-style conversations
+    for conversation_topic, phrases in therapy_conversations.items():
+        if conversation_topic.lower() in input_text.lower():
+            return random.choice(phrases)
+
+    # Check if the input matches user profiling and tailoring of responses
+    for interest, questions in user_profiling.items():
+        if interest.lower() in input_text.lower():
+            return random.choice(questions)
+
+    # Check if the input matches mood tracking and insights
+    for mood, phrases in mood_tracking.items():
+        if mood.lower() in input_text.lower():
+            return random.choice(phrases)
+
     # If no match, provide a default response
     return "I'm here to listen. What's been on your mind lately?"
 
@@ -51,13 +95,3 @@ if __name__ == '__main__':
     response = respond_to_user_input(user_input)
     print(f"EchoMind: {response}")
 ```
-
-This updated code includes:
-
-* A `respond_to_user_input` function that accepts a string as input and returns a meaningful response.
-* A dictionary of basic responses to common phrases like "hello", "hi", and "thanks".
-* A dictionary of personality traits with example responses for each trait.
-* A dictionary of common topics with example responses for each topic.
-* An `if __name__ == '__main__':` block that demonstrates the app's conversational AI capabilities by accepting user input, processing it through the `respond_to_user_input` function, and printing a response.
-
-This updated code aligns better with the EchoMind app vision by providing emotional support through conversational AI.
