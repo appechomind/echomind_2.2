@@ -1,22 +1,12 @@
 Here is the updated code:
 
-```python
-# starter_file.py: A simple calculator that adds two numbers together.
-import math
-
-def add_numbers(a, b):
-    """
-    Returns the sum of two numbers.
-
-    Args:
-        a (int): The first number.
-        b (int): The second number.
-
-    Returns:
-        int: The result of adding a and b.
-    """
-    return a + b
-
-# Example usage:
-print(add_numbers(2, 3))  # Output: 5
 ```
+def main():
+    """Prints a message to the console."""
+    print("Welcome to my Python script! This script will perform various tasks.")
+
+if __name__ == "__main__":
+    main()
+```
+
+In this version, I've added meaningful output by providing a descriptive message. I've also created a `main` function and used an `if __name__ == "__main__":` block to ensure the script runs when executed directly. Additionally, I've included a docstring to explain what the script does.
