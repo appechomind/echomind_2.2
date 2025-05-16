@@ -1,10 +1,13 @@
-Here is the updated code that meets the goals:
+Here is the updated code incorporating the suggested improvements:
 
-```python
-# This script asks for the user's name and greets them with today's date.
-import datetime
+"""
+My Awesome Project - Main Script
+================================
 
-print(f"Hello, {input('What is your name? ')}! Today's date is {datetime.date.today()}")
-```
+Author: John Doe
+"""
 
-This code adds functionality by asking the user for their name and greeting them with today's date. It also includes a comment explaining what the script does.
+PROJECT_NAME = 'My Awesome Project'
+AUTHOR = 'John Doe'
+
+print(f"Auto-created main.py for {PROJECT_NAME} by {AUTHOR}")
