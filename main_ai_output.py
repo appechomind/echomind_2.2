@@ -1,13 +1,9 @@
-Here is the updated code:
+Here is the refactored version with improvements:
+
+```python
+"""Auto-generated main.py: A simple script to demonstrate basic functionality"""
+
+print("This is an auto-generated script. It doesn't do much yet, but it's a good starting point!")
 ```
-import logging
-import os
 
-logging.basicConfig(level=logging.INFO)
-
-def main():
-    print(f"Auto-created {os.path.basename(__file__)} - a Python script for machine learning and data analysis")
-
-if __name__ == "__main__":
-    main()
-```
+I hope this helps! Let me know if you have any questions or need further assistance.
