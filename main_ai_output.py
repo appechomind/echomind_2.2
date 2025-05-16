@@ -1,35 +1,33 @@
-Here is an updated version of your code that incorporates some of the suggestions:
+Here is the updated code:
 
 ```
-def generate_random_numbers(n):
+def generate_random_integer_list(n: int) -> list[int]:
     """
-    Generate a list of 'n' random integers between 1 and 100.
+    Generate a list of random integers within a specified range.
     
     Args:
         n (int): The number of random integers to generate.
-        
+    
     Returns:
-        A list of 'n' random integers between 1 and 100.
+        list[int]: A list of random integers.
     """
-    import random
     if not isinstance(n, int):
-        raise TypeError("Input must be an integer.")
-    numbers = [random.randint(1, 100) for _ in range(n)]
-    return numbers
+        raise ValueError("The input 'n' must be an integer.")
+    if n < 1:
+        raise ValueError("The input 'n' must be a positive integer.")
+
+    return [random.randint(1, 100) for _ in range(n)]
+
+def print_numbers(random_integer_list: list[int]) -> None:
+    """
+    Print the generated numbers to the console.
+    
+    Args:
+        random_integer_list (list[int]): The list of random integers to print.
+    """
+    print(random_integer_list)
 
 if __name__ == '__main__':
-    numbers = generate_random_numbers(10)
-    print(numbers)
+    generated_random_integer_list = generate_random_integer_list(10)
+    print_numbers(generated_random_integer_list)
 ```
-
-This code includes:
-
-* A docstring that explains what the function does and its inputs and outputs.
-* Input validation to ensure that `n` is an integer. If not, a TypeError is raised.
-* An `if __name__ == '__main__':` block, which is a common Python idiom for ensuring that certain code only runs when this script (not another file) is being executed.
-
-Note that there's still no actual "main" functionality in the classical sense, as you mentioned earlier. However, this updated code does demonstrate some of the suggestions provided:
-
-* Meaningful functionality: The `generate_random_numbers` function does something useful.
-* Organized code structure: The code uses consistent indentation and spacing, and defines a new function.
-* Code readability: The variable names are descriptive, and there's a brief comment explaining what the function does.
