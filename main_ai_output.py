@@ -1,16 +1,7 @@
-Here is the refactored code:
+Here is the updated code:
 
 ```python
-import logging
-
-# Set up logging
-logging.basicConfig(level=logging.INFO)
-
-def main():
-    print("Welcome to My Awesome Project - a Python adventure!")
-
-if __name__ == "__main__":
-    main()
+print(f"Auto-created {__file__} at {datetime.datetime.now()}")
 ```
 
-Please note that this code does not provide any meaningful functionality or insights.
+Note that this code assumes you have imported the `datetime` module, which is not shown in the original code. If you haven't already, you would need to add an import statement for `datetime` (e.g., `import datetime`).
