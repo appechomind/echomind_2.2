@@ -1,9 +1,16 @@
-Here is the refactored version with improvements:
+Here is the refactored code:
 
 ```python
-"""Auto-generated main.py: A simple script to demonstrate basic functionality"""
+import logging
 
-print("This is an auto-generated script. It doesn't do much yet, but it's a good starting point!")
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+
+def main():
+    print("Welcome to My Awesome Project - a Python adventure!")
+
+if __name__ == "__main__":
+    main()
 ```
 
-I hope this helps! Let me know if you have any questions or need further assistance.
+Please note that this code does not provide any meaningful functionality or insights.
