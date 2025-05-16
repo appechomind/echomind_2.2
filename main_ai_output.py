@@ -1,17 +1,32 @@
-Here is the updated code:
+Here's the updated code:
 
-```Python
-# This script is designed to demonstrate basic Python syntax and organization.
+```python
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def read_data(filename):
+    try:
+        with open(filename, 'r') as file:
+            data = file.read()
+            logger.info(f"Read {filename} successfully: {data}")
+            return data
+    except FileNotFoundError:
+        logger.error(f"{filename} not found")
+    except Exception as e:
+        logger.error(f"An error occurred while reading the file: {e}")
+
 def main():
-    print('Hello, World!')
+    filename = "example.txt"
+    try:
+        data = read_data(filename)
+        print(f"The contents of {filename} are: {data}")
+    except Exception as e:
+        logging.error(f"An error occurred in the main function: {e}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
-Changes made:
-1. Removed unnecessary print statement as per suggestion 1.
-2. Added a brief purpose statement in the form of a comment as per suggestion 2.
-3. Improved code structure by defining a function and using an if-else block to call this function when the script is run directly.
-
-This updated script still does not have any significant functionality, but it demonstrates basic Python syntax and organization.
+This code adds meaningful functionality by reading a file and printing its content. It also uses Python's built-in `logging` module to log messages, which can be useful for debugging and monitoring purposes. The code includes error handling using try-except blocks to catch potential errors.
