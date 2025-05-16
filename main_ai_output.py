@@ -1,44 +1,43 @@
-Here is the updated content:
-
-Here is an updated version of the main_ai_output.py file that incorporates more advanced NLP capabilities and improves the overall conversation flow:
-
-**Alignment with goals:**
-
-The updated code does incorporate some advanced NLP capabilities, such as tokenization, part-of-speech tagging, and named entity recognition. These features can help improve the conversational AI's ability to understand and respond to user input. The inclusion of a function to clean and process user input is also a positive step in ensuring better analysis.
-
-However, I don't see any significant improvements in emotional support, which is a core aspect of EchoMind's purpose. The code still relies on random response selection, which may not always provide the empathetic and supportive responses that users are looking for.
-
-**Suggestions for improvement:**
-
-1. **Integrate more advanced emotional intelligence**: To better align with EchoMind's goals, I suggest incorporating more advanced AI models or techniques that can analyze user emotions and respond in a more empathetic and supportive manner.
-2. **Improve response generation mechanisms**: Instead of relying on random response selection, consider integrating more sophisticated natural language processing (NLP) techniques, such as contextual understanding, sentiment analysis, and emotional intelligence.
-3. **Enhance validation and filtering**: While the code includes some basic input validation, it's essential to ensure that user input is not only safe but also relevant and meaningful for the conversation. This can be achieved by incorporating more advanced NLP techniques, such as intent detection and topic modeling.
-4. **Consider human-in-the-loop feedback mechanisms**: To further improve the conversational AI's emotional support capabilities, consider integrating human-in-the-loop feedback mechanisms that allow users to provide ratings or feedback on responses.
-
-Here is an updated version of the main.py file that incorporates more advanced NLP capabilities and improves the overall conversation flow:
+Here is the updated code:
 
 ```
-import nltk
-from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.stem import WordNetLemmatizer
+import re
 import random
-import string
+from nltk.sentiment import SentimentIntensityAnalyzer
 
-lemmatizer = WordNetLemmatizer()
+def respond_to_user_input(input_text):
+    # Define some basic responses
+    responses = {
+        "hello": ["Hello there! How are you feeling today?", "Hi! It's great to chat with you. What's on your mind?"],
+        "hi": ["Hi! It's great to chat with you. What's on your mind?", "Hey! I'm here to listen. What's been on your mind lately?"],
+        "thanks": ["You're welcome! I'm happy to help.", "No problem at all. That's what friends are for."]
+    }
 
-def clean_text(text):
-    return text.translate(str.maketrans('', '', string.punctuation)).lower().strip()
+    # Define some advanced responses
+    advanced_responses = {
+        r"how are you": ["I'm just an AI, but I'm doing well, thanks! How about you?", "I'm feeling quite chatty today, thanks for asking!"],
+        r"what's new": ["Not much, just hanging out. What about you?", "Just the usual - learning and improving my conversational skills."],
+    }
 
-def tokenize_text(text):
-    return word_tokenize(clean_text(text))
+    # Check if the input matches a response
+    for key in responses:
+        if re.match(key.lower(), input_text.lower()):
+            return random.choice(responses[key])
 
-def respond_to_user_input(input_text, emotional_responses):
-    user_tokens = tokenized_input = tokenize_text(input_text)
+    # Check if the input matches an advanced response
+    for pattern, responses_list in advanced_responses.items():
+        if re.match(pattern, input_text):
+            return random.choice(responses_list)
 
-    for intent in intents:
-        if intent['name'] == 'emotional-support':
-            response = random.choice(emotional_responses[intent['keyword'].lower()])
-            return response
+    # If no match, provide a default response
+    sia = SentimentIntensityAnalyzer()
+    sentiment = sia.polarity_scores(input_text)
+    if sentiment['compound'] > 0:
+        return "I'm here to listen. What's been on your mind lately?"
+    elif sentiment['compound'] < 0:
+        return "Sorry to hear that. Is there anything I can do to help?"
+    else:
+        return "I'm here to chat. What's on your mind?"
 
 if __name__ == '__main__':
     print('EchoMind Conversational AI')
@@ -46,17 +45,3 @@ if __name__ == '__main__':
     response = respond_to_user_input(user_input)
     print(f"EchoMind: {response}")
 ```
-
-This updated code includes:
-
-1. Tokenization: Breaks down the user's input into individual words or tokens.
-2. Part-of-speech tagging: Identifies the parts of speech (e.g., nouns, verbs, adjectives) in the user's input.
-3. Named entity recognition: Extracts specific entities like names, locations, and organizations from the user's input.
-
-In addition to these advanced NLP capabilities, this updated code also includes:
-
-1. A function to clean and process user input for better analysis.
-2. An improved response generation mechanism that selects a random response based on the user's input.
-3. The ability to validate user input and ensure it's relevant and safe for the conversation.
-
-This updated code aligns better with the EchoMind app vision by providing emotional support through more advanced conversational AI capabilities.
