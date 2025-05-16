@@ -1,4 +1,4 @@
-Here is the rewritten `main.py` file incorporating both LLaMA3's and Cursor AI's insights and recommendations:
+Here is the rewritten `main.py` file incorporating both LLaMA3's and Cursor AI's insights and recommendations for improving EchoMind's Magic App:
 
 ```python
 import os
@@ -6,7 +6,6 @@ import random
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import tf.keras.models.load_model('interactions_model.h5')
 
 # Define constants for magic tricks and puzzles
 MAGIC_TRICKS = {
