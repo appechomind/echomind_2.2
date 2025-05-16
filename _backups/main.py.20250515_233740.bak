@@ -1,11 +1,8 @@
-Here is the rewritten `main.py` file incorporating both LLaMA3's and Cursor AI's insights and recommendations for improving EchoMind's Magic App:
+Here is the rewritten `main.py` file based on Cursor AI's advice:
 
 ```python
 import os
 import random
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 # Define constants for magic tricks and puzzles
 MAGIC_TRICKS = {
@@ -64,23 +61,6 @@ def main():
         else:
             # Invalid input, display an error message
             print("Invalid input. Please try again.")
-
-# Define a function to generate autonomous UI based on transcript detection
-def generate_ui(transcript):
-    tfidf_vectorizer = TfidfVectorizer()
-    sentence_vectors = tfidf_vectorizer.fit_transform([transcript])
-    similarity_scores = cosine_similarity(sentence_vectors, sentence_vectors)
-    recommended_content = []
-    for content in MAGIC_TRICKS | PUZZLES:
-        if similarity_scores[0][content] > 0.5:
-            recommended_content.append(content)
-    return recommended_content
-
-# Define a function to enhance interaction control using machine learning
-def enhance_interaction(input_text):
-    model = tf.keras.models.load_model('interactions_model.h5')
-    output = model.predict(input_text)
-    return output
 
 # Call the main function to start the magic app
 main()
