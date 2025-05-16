@@ -1,13 +1,14 @@
-Here is the updated code incorporating the suggested improvements:
+Here's an updated version of your code that incorporates some of the suggestions:
 
-"""
-My Awesome Project - Main Script
-================================
+```
+import datetime
 
-Author: John Doe
-"""
+def auto_generate_main():
+    try:
+        print(f"Auto-generated 'main.py' on {datetime.datetime.now()}.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-PROJECT_NAME = 'My Awesome Project'
-AUTHOR = 'John Doe'
-
-print(f"Auto-created main.py for {PROJECT_NAME} by {AUTHOR}")
+if __name__ == "__main__":
+    auto_generate_main()
+```
