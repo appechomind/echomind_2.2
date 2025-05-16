@@ -1,41 +1,34 @@
-Here is the updated code:
+Here's the updated code:
 
 ```
-def respond_to_user_input(input_text):
-    # Define some basic responses
-    responses = {
-        "hello": "Hello there! How are you feeling today?",
-        "hi": "Hi! It's great to chat with you. What's on your mind?",
-        "thanks": "You're welcome! I'm happy to help."
-    }
+import random
 
-    # Check if the input matches a response
-    for key in responses:
-        if key.lower() == input_text.lower():
-            return responses[key]
+class EchoMind:
+    def __init__(self):
+        self.emotions = {
+            'happy': "I'm thrilled you're feeling happy!",
+            'sad': "Sorry to hear that. Would you like to talk about it?",
+            'angry': "Whoa, I sense some frustration! Can we find a way to address it?"
+        }
 
-    # If no match, provide a default response
-    return "I'm here to listen. What's been on your mind lately?"
+    def respond_to_user_input(self, input_text):
+        if any(emotion in input_text.lower() for emotion in self.emotions.keys()):
+            return random.choice([self.emotions[emotion] for emotion in self.emotions.keys()])
+        elif 'help' in input_text.lower():
+            return "I'm here to help! What do you need assistance with?"
+        else:
+            return "I'm here to listen. What's been on your mind lately?"
 
-def process_user_input():
-    user_input = input("You: ")
-    try:
-        user_input_string = str(user_input)
-        response = respond_to_user_input(user_input_string)
-        print(f"EchoMind: {response}")
-    except Exception as e:
-        print(f"Error: {str(e)}")
+    def process_user_input(self):
+        user_input = input("You: ")
+        try:
+            response = self.respond_to_user_input(user_input)
+            print(f"EchoMind: {response}")
+        except Exception as e:
+            print(f"Error: {str(e)}")
 
 if __name__ == '__main__':
+    echo_mind = EchoMind()
     print('EchoMind Conversational AI')
     while True:
-        process_user_input()
-```
-
-This updated code includes:
-
-* A separate `process_user_input` function that handles user input, error handling and prints the response.
-* Error handling to catch any unexpected inputs or exceptions.
-* An infinite loop to continue processing user input until the program is stopped.
-* Renamed `input_text` to `user_input_string` for better clarity.
-* Removed redundant parentheses in some places.
+        echo_mind.process_user_input()
