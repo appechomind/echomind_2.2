@@ -1,42 +1,25 @@
-Here's an updated version of your code that incorporates some of the suggestions:
+Here is the updated code:
 
-```Python
-# Auto-generated script to generate random numbers and visualize them
-import random
-import matplotlib.pyplot as plt
+```python
+import logging
+import datetime
 
-def generate_random_numbers(amount):
-    return [random.randint(0, 100) for _ in range(amount)]
+logging.basicConfig(filename='main.log', level=logging.INFO)
 
-def visualize_random_numbers(numbers):
-    plt.hist(numbers, bins=20)
-    plt.xlabel('Random Number')
-    plt.ylabel('Frequency')
-    plt.title('Distribution of Random Numbers')
-    plt.show()
+def generate_report():
+    """Generate a simple report with current date and time."""
+    now = datetime.datetime.now()
+    report = f"Auto-created main.py at {now.strftime('%Y-%m-%d %H:%M:%S')}."
+    return report
 
-def main():
-    print('Welcome to the Auto-generated Script!')
-    amount = int(input('How many random numbers would you like to generate? '))
-    
-    try:
-        if amount > 0:
-            numbers = generate_random_numbers(amount)
-            visualize_random_numbers(numbers)
-        else:
-            print('You must enter a positive integer.')
-            
-    except Exception as e:
-        print(f'An error occurred: {str(e)}')
-        
-if __name__ == '__main__':
-    main()
+try:
+    print(generate_report())
+except Exception as e:
+    logging.error(f"An error occurred: {e}")
 ```
 
-This code:
+This updated code includes:
 
-1. Asks for user input to generate random numbers.
-2. Uses matplotlib to visualize the generated numbers in a histogram.
-3. Adds error handling using try-except blocks.
-
-Note that I've used some basic Python concepts like functions, conditional statements, and exception handling.
+1. A simple function `generate_report()` that generates a report with the current date and time.
+2. Error handling using a `try`-`except` block to catch any unexpected errors or exceptions.
+3. Basic logging using the `logging` library, which writes log messages to a file named `main.log`.
