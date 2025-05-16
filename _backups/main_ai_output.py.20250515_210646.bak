@@ -1,10 +1,6 @@
-Here is the updated code incorporating the suggestions:
+Here is the updated code:
 
-```python
-import re
-from nltk.tokenize import word_tokenize
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
+```
 def respond_to_user_input(input_text):
     # Define some basic responses
     responses = {
@@ -21,28 +17,15 @@ def respond_to_user_input(input_text):
         "what is your purpose": "My purpose is to provide emotional support and have meaningful conversations with users like you. What do you think about that?"
     }
 
-    # Define some nuanced response generation
-    nuanced_responses = {
-        "I am happy": "That's wonderful! I'm glad to hear you're feeling positive.",
-        "I am sad": "I'm so sorry to hear that. It can be tough to deal with sadness, but sometimes talking about it can help."
-    }
-
     # Check if the input matches a response
     for key in responses:
-        if re.match(key.lower(), input_text.lower()):
+        if key.lower() == input_text.lower():
             return responses[key]
 
     # Check if the input matches a follow-up question
     for key in follow_up_questions:
-        if re.match(key.lower(), input_text.lower()):
+        if key.lower() == input_text.lower():
             return follow_up_questions[key] + " What's been on your mind lately?"
-
-    # Check if the input contains emotions-based sentiment
-    sia = SentimentIntensityAnalyzer()
-    tokens = word_tokenize(input_text)
-    sentiment_score = sia.polarity_scores(' '.join(tokens))
-    if sentiment_score['compound'] > 0.5:
-        return nuanced_responses.get("I am happy", "That's wonderful! I'm glad to hear you're feeling positive.")
 
     # If no match, provide a default response
     return "I'm here to listen. What's been on your mind lately?"
@@ -54,21 +37,10 @@ def user_feedback(feedback):
         "I didn't find this helpful": "Sorry to hear that. Can you tell me more about what you were looking for? Maybe we can improve our conversation."
     }
 
-    # Define some specific questions
-    follow_up_questions = {
-        "what was not helpful": "Can you give me some specifics on what wasn't helpful? That will help me improve.",
-        "what did you find helpful": "That's great to hear! Can you tell me more about what was helpful?"
-    }
-
     # Check if the feedback matches a response
     for key in feedback_responses:
-        if re.match(key.lower(), feedback.lower()):
+        if key.lower() == feedback.lower():
             return feedback_responses[key]
-
-    # Check if the feedback contains specific questions
-    for key in follow_up_questions:
-        if re.match(key.lower(), feedback.lower()):
-            return follow_up_questions[key] + " How can I better support you?"
 
     # If no match, provide a default response
     return "Thank you for your feedback! I'll do my best to make our conversation more helpful."
